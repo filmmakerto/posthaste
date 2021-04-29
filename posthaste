@@ -1,0 +1,61 @@
+#!/bin/bash
+
+while getopts "n:d:" arg; do
+	case $arg in
+		n)
+			projectname=$OPTARG
+			;;
+		d)
+   			parentdir=$OPTARG
+   			;;
+  	esac
+done
+
+cd "$parentdir"
+mkdir "$projectname"
+
+cd "$parentdir/$projectname"
+mkdir "00 Produktion"
+cd "00 Produktion"
+mkdir "01 Produktion"
+mkdir "02 Story & Drehbuch"
+mkdir "03 Kamera & Licht"
+mkdir "04 Sound & Musik"
+mkdir "05 Szenenbild"
+mkdir "06 Postproduktion"
+
+cd "$parentdir/$projectname"
+mkdir "01 Rohmaterial"
+cd "01 Rohmaterial"
+mkdir "01 Video"
+mkdir "02 Audio"
+
+cd "$parentdir/$projectname"
+mkdir "02 Schnittmaterial"
+cd "02 Schnittmaterial"
+mkdir "01 Video"
+mkdir "02 VFX"
+mkdir "03 Grafik"
+mkdir "04 Sound"
+mkdir "05 Musik"
+mkdir "06 Fotos"
+
+cd "$parentdir/$projectname"
+mkdir "03 Export"
+cd "03 Export"
+mkdir "01 Previews"
+mkdir "02 Intermediates"
+mkdir "03 Schnittstellen"
+mkdir "04 Master"
+
+cd "$parentdir/$projectname"
+mkdir "04 Projektfiles"
+cd "04 Projektfiles"
+mkdir "01 Schnittvorbereitung"
+mkdir "02 Schnitt"
+mkdir "03 VFX"
+mkdir "04 Grafik"
+mkdir "05 Sound"
+mkdir "06 Grading & Mastering"
+
+$FILEMANAGER "$parentdir/$projectname"
